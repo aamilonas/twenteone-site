@@ -1,65 +1,69 @@
-import Image from "next/image";
+import { HeroSection } from "@/components/sections/hero-section";
+import { ServiceCard } from "@/components/sections/service-card";
+import { ClientLogos } from "@/components/sections/client-logos";
+import { CTASection } from "@/components/sections/cta-section";
+import { MotionSection } from "@/components/motion-wrapper";
+import { services } from "@/lib/data/services";
+import { ServicesGrid } from "@/components/sections/services-grid";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeroSection
+        headline="Tailored Solutions, Lasting Impact."
+        subheadline="Empowering growth-stage leaders to transcend operational plateaus and achieve autonomous, sustainable growth."
+        ctaText="Discover Your Growth Path"
+        ctaHref="/services"
+      />
+
+      {/* Philosophy Section */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <MotionSection className="mx-auto max-w-3xl">
+            <h2 className="text-center">
+              Beyond Frameworks: The Power of Mentorship
+            </h2>
+            <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
+              TwenteOne was born from the vision of its founders, who spent the
+              last 30 years crafting and executing successful strategies that
+              fueled the growth of numerous companies. Through their extensive
+              experience, they discovered that the key to success lies not just
+              in leadership, but in mentorship. They believe that a great leader
+              does more than manage teams — they inspire, guide, and coach them
+              to reach their full potential.
+            </p>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              With this philosophy at the core, TwenteOne was founded to help
+              businesses unlock their true growth potential by providing
+              experienced leadership and tailored strategies. By combining years
+              of hands-on expertise with a deep commitment to empowering teams,
+              TwenteOne helps companies thrive in today&apos;s dynamic and
+              competitive marketplace.
+            </p>
+          </MotionSection>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Services Grid */}
+      <section className="bg-muted/30 py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <MotionSection>
+            <h2 className="text-center">
+              Our Expertise: Your Strategic Advantage
+            </h2>
+          </MotionSection>
+          <ServicesGrid services={services} className="mt-12" />
         </div>
-      </main>
-    </div>
+      </section>
+
+      <ClientLogos />
+
+      <CTASection
+        headline="Ready to Transform Your Business?"
+        body="Connect with our seasoned strategists to discuss how TwenteOne can help you transcend operational plateaus and achieve lasting impact."
+        ctaText="Connect with Our Strategists"
+        ctaHref="/contact"
+      />
+    </>
   );
 }
