@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import logoSvg from "@/../public/logo.svg";
 import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -38,11 +39,12 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="/logo.svg"
+            src={logoSvg}
             alt="TwenteOne"
             width={140}
             height={28}
             priority
+            unoptimized
             className="dark:[filter:brightness(0)_invert(1)]"
           />
         </Link>
